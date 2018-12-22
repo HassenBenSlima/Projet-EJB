@@ -1,0 +1,65 @@
+<!--**********************************************************-->
+<div class="">
+
+<div class="container spacer">
+  <div class="panel panel-default" *ngIf="mode==1">
+    <div class="panel panel-heading">Authentification</div>
+    <div class="panel panel-body">
+
+      <div class="text-center mb-4">
+        <img class="img mb-4" src="http://127.0.0.1:8887/avatar.png" alt="" width="150" height="150">
+        <h1 class="h3 mb-3 font-weight-normal">Authentification</h1>
+        <p>Bonjour Mr. <code>ce site Vous donne plain de service d'impresssion </code>
+          <!--tel que: <a>demamde d'inpression,historique de demande ...</a-->
+        </p>
+      </div>
+
+      <form [formGroup]="form">
+
+
+        <div class="form-label-group"
+             [ngClass]="{'has-error': (form.get('login').touched || form.get('login').dirty) &&  !form.get('login').valid }">
+          <label class=" control-label">Login</label>
+
+          <input class="form-control" type="text" placeholder="login(required)" formControlName="login"/>
+          <span class="help-block"
+                *ngIf="(form.get('login').touched ||form.get('login').dirty) &&form.get('login').errors">
+              <span *ngIf="form.get('login').errors.required">entrer le nom svp</span>
+              <span *ngIf="form.get('login').errors.minlength"> minimum 4 characters. </span>
+            </span>
+        </div>
+
+
+        <div class="form-label-group"
+             [ngClass]="{'has-error': (form.get('password').touched || form.get('password').dirty) &&  !form.get('password').valid }">
+          <label class=" control-label">password</label>
+
+          <input class="form-control" type="text" placeholder="password (required)" formControlName="password"/>
+          <span class="help-block"
+                *ngIf="(form.get('password').touched ||form.get('password').dirty) &&form.get('password').errors">
+              <span *ngIf="form.get('password').errors.required">entrer le prenom svp</span>
+              <span *ngIf="form.get('password').errors.minlength"> minimum 4 characters. </span>
+            </span>
+
+        </div>
+
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!form.valid" (click)="auth()" id="validate"
+                name="validate">
+          Authentification
+        </button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2018-2019</p>
+      </form>
+
+    </div>
+  </div>
+
+
+</div>
+</div>

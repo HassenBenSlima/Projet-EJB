@@ -1,0 +1,37 @@
+
+
+<div class="panel panel-primary">
+  <div class="panel panel-heading">Listes des Matieres</div>
+  <div class="panel panel-body">
+    <div class="form-group">
+      <label>Mot Clé:</label>
+      <input type="text" [(ngModel)]="motCle"/>
+      <button class="btn btn-primary" (click)="chercher()">Chercher</button>
+    </div>
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th><th>Labelle</th><th colspan="2">ACTION</th>
+      </tr>
+      <tr *ngFor="let c of pageContacts">
+        <td>{{c.id}}</td>
+        <td>{{c.labelle}}</td>
+
+        <td>
+          <a (click)="onEditMatiere(c.id)" class="clickable" >
+            <button type="button" class="btn btn-warning">Edit</button>
+            </a>
+        </td>
+        <td>
+          <a (click)="onDeleteMatiere(c)" class="clickable" >
+            <button type="button" class="btn btn-danger">Delete</button>
+
+            </a>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
+
+

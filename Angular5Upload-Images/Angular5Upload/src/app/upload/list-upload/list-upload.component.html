@@ -1,0 +1,61 @@
+<!--<button class="button btn-info" *ngIf='showFile' (click)='showFiles(false)'>Hide Images</button>-->
+
+<!--<button class="button btn-info" *ngIf='!showFile' (click)='showFiles(true)'>Show Images</button>-->
+
+<div class="panel panel-primary">
+  <div class="panel panel-heading">Listes des Matieres</div>
+  <div class="panel panel-body">
+
+<!--*****************************-->
+
+<nav class="navbar navbar-light bg-light">
+  <button class="btn btn-outline-succes my-2 my-sm-0" (click)="alltaches()" type="submit">ALL</button>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="date" #search date-format="DD MMMM YYYY"
+           value="{{todate | date:'yyyy-MM-dd'}}"
+           placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-succes my-2 my-sm-0" (click)="serach(search.value)" type="submit">Search</button>
+  </form>
+</nav>
+
+<!--+++++++++++++++++++++++++++++-->
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">dateRecuperation</th>
+    <th scope="col">heureRecuperation</th>
+    <th scope="col">nombreCopies</th>
+    <th scope="col">pathDoc</th>
+    <th scope="col">Achever</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of taches">
+    <th scope="row">{{t.id}}</th>
+    <td>{{t.dateRecuperation}}</td>
+    <td>{{t.heureRecuperation}}</td>
+    <td>{{t.nombreCopies}}</td>
+    <td><a target="_blank" rel="noopener noreferrer" href="http://127.0.0.1:8887/{{t.pathDoc}}">{{t.pathDoc}}</a>
+    </td>
+    <td>
+      <div class="custom-control custom-checkbox my-1 mr-sm-2">
+
+        <input type="hidden" class="custom-control-input" #val value="{{t.id}}">
+
+        <button class="btn btn-success"
+                (click)="deleteLigne(val.value)">done
+        </button>
+
+
+      </div>
+
+
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+  </div>
+</div>

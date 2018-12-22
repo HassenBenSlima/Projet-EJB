@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Impression</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/welcome" *ngIf="mode==1" >Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/about" *ngIf="mode==1" >Demande d'impression</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contacts" *ngIf="mode==2">Les demandes d'impression</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/newContact" *ngIf="mode==2">les taches terminé</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/mesdemandesnonrealiser" *ngIf="mode==1" >mes demandes non realiser</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/mesdemanderealiser" *ngIf="mode==1" >mes demandes realiser</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/new-matiere" *ngIf="mode==1">nouvelle Matiere</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/listmatiere" *ngIf="mode==1">liste des matieres Matiere</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link disabled" routerLink="/login">deconnection</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+

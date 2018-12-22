@@ -1,0 +1,29 @@
+<div class="panel panel-primary">
+  <div class="panel panel-heading">Listes des Tache realisé</div>
+  <div class="panel panel-body">
+    <div class="form-group">
+      <label>Mot Clé:</label>
+      <input type="text" [(ngModel)]="motCle"/>
+      <button class="btn btn-primary" (click)="chercher()">Chercher</button>
+    </div>
+    <table class="table table-striped">
+      <tr>
+        <th>dateRecuperation</th>
+        <th>heureRecuperation</th>
+        <th>nombreCopies</th>
+        <th>pathDoc</th>
+        <th>description</th>
+      </tr>
+      <tr *ngFor="let c of pageContacts">
+        <td>{{c.dateRecuperation}}</td>
+        <td>{{c.heureRecuperation}}</td>
+        <td>{{c.nombreCopies}}</td>
+        <td><a target="_blank" rel="noopener noreferrer" href="http://127.0.0.1:8887/{{c.pathDoc}}">{{c.pathDoc}}</a>
+        <td>{{c.description}}</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+

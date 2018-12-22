@@ -1,0 +1,69 @@
+<div class="panel panel-primary">
+  <div class="panel panel-heading">faire une demande</div>
+  <div class="panel panel-body">
+
+
+    <div class="form-group">
+      <label>sélectionné la matiere </label>
+      <select class="form-control">
+
+        <option *ngFor="let m of matieres" value="{{m.id}}">{{m.labelle}}</option>
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre de copies</label>
+      <input type="number" #nombreCopy class="form-control" placeholder="Nombre de copies">
+      <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+
+    <div *ngIf="currentFileUpload" class="progress">
+      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+           attr.aria-valuenow="{{progress.percentage}}"
+           aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+        {{progress.percentage}}%
+      </div>
+    </div>
+
+
+    <div class="form-group ">
+      <label>File</label>
+      <input type="file" class="form-control" (change)="selectFile($event)">
+    </div>
+
+    <div class="form-group ">
+      <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload file</button>
+    </div>
+
+
+    <div class="form-group ">
+      <label>Date</label>
+      <div>
+        <input class="form-control" #date type="date" value="2018-12-19">
+      </div>
+    </div>
+
+
+    <div class="form-group ">
+      <label>Time</label>
+      <div>
+        <input class="form-control" #time type="time" value="15:18" placeholder="HH:MM">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label>description</label>
+      <textarea class="form-control" #desc rows="3"></textarea>
+    </div>
+
+
+    <div class="form-group">
+      <button class="btn btn-success"
+              (click)="addTache(date.value,time.value,nombreCopy.value,desc.value)">demande d'impression
+      </button>
+    </div>
+
+  </div>
+</div>
